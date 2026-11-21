@@ -1,0 +1,6 @@
+{
+  "name": "CampusOS",
+  "description": "Your entire campus, in one place. An all-in-one digital campus companion for college students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
