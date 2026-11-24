@@ -1,309 +1,1057 @@
-# 🎓 CampusOS
+# CAMPUSOS — FULL-STACK SMART CAMPUS OPERATING SYSTEM
 
-> **Your entire campus, in one place.**
+## ROLE
 
-CampusOS is a modern, intelligent digital campus companion designed to bring everyday college life into one unified platform.
+You are an expert **senior full-stack engineer, UI/UX designer, product architect, and AI application developer**.
 
-From managing your timetable and attendance to tracking assignments, preparing for exams, calculating CGPA, discovering campus events, and getting AI-powered study recommendations, CampusOS helps students stay organized and academically focused.
+Build a polished, production-quality web application called **CampusOS**.
 
----
+CampusOS is an intelligent digital campus companion that brings a student's academic life, campus activities, productivity tools, and AI assistance into one unified platform.
 
-## 🚀 Why CampusOS?
+The application should feel like a **premium modern SaaS product**, not a basic college management CRUD application.
 
-College students often have their academic information scattered across multiple platforms, notebooks, messaging groups, and spreadsheets.
+The core philosophy is:
 
-**CampusOS brings everything together.**
+> **"Your entire campus, in one place."**
 
-It provides a personalized **Student Command Center** that answers one simple question:
+The application should answer:
 
 > **"What matters today?"**
 
-Students can instantly see their next class, urgent assignments, upcoming exams, attendance warnings, recommended study sessions, and campus events.
+The dashboard should intelligently summarize the student's current academic situation instead of simply displaying a collection of pages.
 
 ---
 
-## ✨ Key Features
+# 1. CORE PRODUCT VISION
 
-### 📊 Student Dashboard
-- Personalized student dashboard
-- Today's classes
-- Attendance overview
-- Pending assignments
-- Upcoming exams
-- SGPA/CGPA overview
-- Quick actions
-- Notifications
-- Student Command Center
+Students normally have information scattered across:
 
-### 🗓️ Smart Timetable
-- Weekly Monday–Sunday timetable
-- Subject, faculty, room, and time information
-- Current class highlighting
-- Color-coded subjects
-- Add, edit, delete, and duplicate classes
-- Today's schedule view
-- Mobile-friendly layout
+- College portals
+- WhatsApp groups
+- Google Calendar
+- Notebooks
+- PDFs
+- Spreadsheets
+- Assignment lists
+- Timetables
+- Notice boards
+- Event platforms
 
-### 📈 Attendance Tracker
-- Subject-wise attendance tracking
-- Present/Absent controls
-- Automatic attendance percentage calculation
-- Safe, warning, and critical attendance indicators
-- Attendance forecasting
-- Attendance scenario simulation
-- Attendance trend charts
+CampusOS should consolidate these into a single intelligent student workspace.
 
-### 📝 Assignment Manager
-- Create and manage assignments
-- Subject and description
-- Due dates
-- Priority levels
-- Assignment status
-- Notes and attachments
-- Pending, completed, and overdue views
-- Calendar and list views
-- Progress statistics
+The student should be able to:
 
-### 🧠 Exam Center
-- Manage upcoming exams
-- Exam date, time, venue, and syllabus
-- Preparation status
-- Exam countdowns
-- Preparation progress tracking
-- Connect exams directly to the AI Study Planner
+- See today's classes
+- Track attendance
+- Manage assignments
+- Track examinations
+- Calculate SGPA/CGPA
+- Create study plans
+- Ask an AI academic assistant questions
+- Discover campus events
+- Explore clubs
+- Search campus resources
+- Report lost/found items
+- Analyze academic performance
+- Receive intelligent recommendations
 
-### 🧮 SGPA / CGPA Calculator
-Calculate academic performance using:
+---
 
-**SGPA**
+# 2. IMPORTANT DEVELOPMENT REQUIREMENT
 
-`SGPA = Σ(Credit × Grade Point) / Σ(Credits)`
+Do NOT build this as a static mockup.
 
-**CGPA**
+All major interface elements should be functional.
 
-`CGPA = Σ(Semester Credits × SGPA) / Σ(Semester Credits)`
+Buttons should perform real actions.
 
-Includes:
-- Configurable grade points
-- Multiple subjects
-- Multiple semesters
-- Semester comparison
-- Performance graphs
+Forms should save data.
 
-### 🤖 AI Study Assistant
+Charts should update based on data.
 
-CampusOS integrates Gemini-powered AI capabilities to provide personalized academic assistance.
+Calculators should calculate correctly.
+
+Filters should actually filter.
+
+Search should work.
+
+Navigation should work.
+
+CRUD functionality should work.
+
+Use realistic demo data when backend credentials are unavailable.
+
+The application must be usable immediately after installation.
+
+---
+
+# 3. TECHNOLOGY STACK
+
+Use:
+
+### Frontend
+
+- React
+- Vite
+- JavaScript or TypeScript
+- Tailwind CSS
+- React Router
+- Lucide React
+- Recharts
+- Framer Motion where appropriate
+
+### Backend / Database
+
+Use Supabase for:
+
+- Authentication
+- PostgreSQL database
+- User profiles
+- Academic data
+- Assignments
+- Exams
+- Events
+- Clubs
+- Lost & Found
+- Resources
+- Persistent user data
+
+### AI
+
+Use Gemini API for:
+
+- AI Study Assistant
+- Study Planner
+- Academic insights
+- Assignment prioritization
+- Revision question generation
+- Topic explanations
+- Workload analysis
+
+### Local fallback
+
+If Supabase or Gemini credentials are not configured:
+
+- Use realistic demo data
+- Use localStorage for persistence
+- Provide graceful fallback behavior
+- Never crash because an external API is unavailable
+
+---
+
+# 4. VISUAL DESIGN SYSTEM
+
+The UI should look like a **premium educational SaaS platform**.
+
+Avoid:
+
+- Childish designs
+- Excessive gradients
+- Cartoonish illustrations
+- Generic Bootstrap-style layouts
+- Overly bright colors
+- Cluttered dashboards
+
+Use:
+
+- Clean typography
+- Spacious layouts
+- Rounded cards
+- Subtle borders
+- Soft shadows
+- Elegant animations
+- Professional charts
+- Clear hierarchy
+- Consistent iconography
+- Excellent spacing
+- Responsive layouts
+
+The design should feel comparable to a modern combination of:
+
+- Notion
+- Linear
+- Google Calendar
+- modern fintech dashboards
+- modern AI productivity applications
+
+but should have its own visual identity.
+
+---
+
+# 5. COLOR SYSTEM
+
+Use a professional academic technology palette.
+
+Primary:
+
+- Deep indigo / blue
+
+Supporting:
+
+- Violet
+- Cyan
+- Emerald
+- Amber
+- Rose
+
+Use colors semantically.
+
+For example:
+
+- Green → healthy/safe/completed
+- Amber → warning
+- Red → critical/urgent
+- Blue → information
+- Purple → AI/intelligence
+
+Support:
+
+### Light Mode
+
+Bright background, white cards, subtle borders.
+
+### Dark Mode
+
+Dark charcoal/navy background, elevated cards, accessible text.
+
+Add a global light/dark mode switch.
+
+---
+
+# 6. APPLICATION LAYOUT
+
+## Desktop
+
+Use:
+
+```text
+┌─────────────────────────────────────────────────────────┐
+│ Top Bar                              Search | Bell | User │
+├───────────────┬─────────────────────────────────────────┤
+│               │                                         │
+│ Sidebar       │             Main Content                 │
+│               │                                         │
+│ Dashboard     │                                         │
+│ Timetable     │                                         │
+│ Attendance    │                                         │
+│ Assignments   │                                         │
+│ Exams         │                                         │
+│ CGPA          │                                         │
+│ Study Planner │                                         │
+│ AI Assistant  │                                         │
+│ Events        │                                         │
+│ Clubs         │                                         │
+│ Lost & Found  │                                         │
+│ Resources     │                                         │
+│ Analytics     │                                         │
+│ Settings      │                                         │
+│               │                                         │
+└───────────────┴─────────────────────────────────────────┘
+```
+
+Sidebar should support collapse/expand.
+
+---
+
+## Mobile
+
+Use:
+
+- Compact top bar
+- Bottom navigation
+- Hamburger menu
+- Responsive cards
+- Horizontally scrollable charts where necessary
+- Touch-friendly buttons
+- Mobile-friendly forms
+
+Never allow desktop UI to simply overflow on mobile.
+
+---
+
+# 7. LANDING PAGE
+
+Create a polished public landing page.
+
+## Hero
+
+Headline:
+
+> **Your entire campus, in one place.**
+
+Subtitle:
+
+> Manage classes, attendance, assignments, exams, events, resources and your academic goals with one intelligent campus companion.
+
+Buttons:
+
+- Get Started
+- Explore CampusOS
+
+Include an attractive product dashboard preview.
+
+---
+
+## Landing page sections
+
+### Problem
+
+Explain how students struggle with scattered academic information.
+
+### Solution
+
+Show CampusOS as the unified solution.
+
+### Features
+
+Use feature cards for:
+
+- Smart Timetable
+- Attendance
+- Assignments
+- Exams
+- AI Study Planner
+- CGPA Calculator
+- Campus Events
+- Resources
+- Analytics
+
+### AI section
+
+Highlight CampusOS Intelligence.
+
+Example:
+
+> "You have 2 exams and 3 assignments this week. Your Physics attendance is approaching the warning threshold."
+
+### Statistics
+
+Use believable placeholder metrics rather than fake claims of real users.
+
+### CTA
+
+> **Take control of your campus life.**
+
+---
+
+# 8. AUTHENTICATION
+
+Create:
+
+- Sign Up
+- Login
+- Forgot Password
+- Reset Password
+- Logout
+
+Signup fields:
+
+- Name
+- Email
+- Password
+- University
+- Course
+- Semester
+- Section
+- Student ID
+
+Support Supabase authentication.
+
+If Supabase is unavailable, provide a demo authentication mode.
+
+Never expose API keys in frontend code or source control.
+
+---
+
+# 9. DASHBOARD — STUDENT COMMAND CENTER
+
+This is the most important screen.
+
+The dashboard should immediately answer:
+
+> **What matters today?**
+
+Display:
+
+### Greeting
+
+Example:
+
+> Good morning, Sneha 👋
+
+> Here's what your academic day looks like.
+
+---
+
+## Quick statistics
+
+Cards:
+
+```text
+Attendance
+87%
+
+Assignments
+3 Pending
+
+Exams
+2 Upcoming
+
+SGPA
+9.1
+```
+
+---
+
+# 10. TODAY'S SCHEDULE
+
+Display today's classes as timeline cards.
+
+Example:
+
+```text
+10:00 AM
+Engineering Mathematics
+LH-401
+Dr. Sharma
+
+12:00 PM
+Programming
+Lab-3
+Prof. Das
+```
+
+Highlight the current class.
+
+Display:
+
+- Started
+- Upcoming
+- Completed
+
+---
+
+# 11. URGENT ACTIONS
+
+Create an intelligent "Priority" section.
+
+Examples:
+
+> 🔴 Programming assignment due tomorrow
+
+> 🟠 Physics exam in 3 days
+
+> 🟡 Attendance in BEE is below your target
+
+Use priority scoring.
+
+---
+
+# 12. AI DAILY INSIGHT
+
+Display an AI-generated summary such as:
+
+> "You have a moderately busy week. Prioritize your Programming assignment today and revise Engineering Mathematics for 60 minutes."
+
+Include:
+
+**View full analysis →**
+
+---
+
+# 13. TIMETABLE MODULE
+
+Create a complete timetable management system.
+
+Views:
+
+- Weekly
+- Daily
+
+Days:
+
+- Monday
+- Tuesday
+- Wednesday
+- Thursday
+- Friday
+- Saturday
+- Sunday
+
+Each class contains:
+
+- Subject
+- Faculty
+- Room
+- Start time
+- End time
+- Type
+- Notes
+- Color
+
+Actions:
+
+- Add class
+- Edit class
+- Delete class
+- Duplicate class
+
+---
+
+## Current class indicator
+
+Automatically determine the current class based on system time.
+
+Display:
+
+> NOW
+
+for the active class.
+
+---
+
+# 14. ATTENDANCE MODULE
+
+Allow users to create subjects.
+
+Each subject:
+
+- Subject name
+- Faculty
+- Total classes
+- Attended
+- Missed
+- Attendance percentage
+- Minimum required percentage
+
+Calculate:
+
+```text
+Attendance % =
+(Classes Attended / Total Classes) × 100
+```
+
+---
+
+## Attendance status
+
+### Safe
+
+Above target.
+
+### Warning
+
+Near target.
+
+### Critical
+
+Below target.
+
+Use visual indicators.
+
+---
+
+# 15. ATTENDANCE FORECAST
+
+Calculate:
+
+- Classes required to reach target
+- Classes that can safely be missed
+- Projected attendance after upcoming classes
+
+Example:
+
+> You need to attend the next 5 classes to reach 75%.
+
+Also provide a scenario simulator:
+
+```text
+If I attend next 5 classes:
+82%
+
+If I miss next 2 classes:
+76%
+```
+
+---
+
+# 16. ASSIGNMENT MANAGER
+
+Create a complete assignment system.
+
+Fields:
+
+- Title
+- Subject
+- Description
+- Due date
+- Priority
+- Status
+- Notes
+- Attachment
+
+Statuses:
+
+- Not Started
+- In Progress
+- Completed
+- Overdue
+
+Views:
+
+- List
+- Calendar
+- Board
+
+Filters:
+
+- Subject
+- Priority
+- Status
+- Due date
+
+---
+
+# 17. ASSIGNMENT PRIORITY ENGINE
+
+Automatically calculate urgency based on:
+
+- Due date
+- Priority
+- Estimated effort
+- Subject importance
+
+Show:
+
+### Recommended next task
+
+> Complete Engineering Mathematics assignment.
+
+Reason:
+
+> Due tomorrow and estimated at 2 hours.
+
+---
+
+# 18. EXAM CENTER
+
+Create exam management.
+
+Fields:
+
+- Subject
+- Exam date
+- Start time
+- Duration
+- Venue
+- Syllabus
+- Preparation percentage
+- Notes
+
+Display:
+
+```text
+Engineering Mathematics
+
+Exam in:
+5 days
+
+Preparation:
+64%
+
+Venue:
+LH-401
+```
+
+Use countdown timers.
+
+---
+
+# 19. AI STUDY PLANNER
+
+Allow students to enter:
+
+- Subject
+- Exam date
+- Topics
+- Topic difficulty
+- Current preparation
+- Hours available per day
+- Preferred study time
+
+Gemini should generate:
+
+```text
+DAY 1
+Calculus
+90 minutes
+
+DAY 2
+Differentiation
+60 minutes
+
+DAY 3
+Practice Problems
+90 minutes
+
+DAY 4
+Revision
+60 minutes
+```
+
+Include:
+
+- Daily study blocks
+- Revision sessions
+- Practice questions
+- Mock tests
+- Rest/buffer sessions
+
+Allow students to regenerate the plan.
+
+Allow editing.
+
+Allow marking sessions as complete.
+
+---
+
+# 20. AI STUDY ASSISTANT
+
+Create a dedicated AI chat interface.
 
 Students can ask:
 
-- Create my study plan
-- Explain this topic
-- Generate revision questions
-- Help me prepare for tomorrow's exam
-- Prioritize my assignments
-- Analyze my academic workload
+- Explain a topic
+- Create revision questions
+- Summarize a concept
+- Make a study plan
+- Prioritize assignments
+- Analyze workload
+- Prepare for exams
 
-The assistant can use relevant student information such as subjects, exams, assignments, timetable, and available study hours.
+The assistant should understand available student context.
 
-### 📚 AI Study Planner
-Students can provide:
+For example, if the student asks:
 
-- Exam date
+> "What should I study tonight?"
+
+The AI should consider:
+
+- Upcoming exams
+- Assignments
+- Timetable
+- Subject difficulty
+- Available study hours
+
+instead of giving a generic response.
+
+---
+
+# 21. AI CONTEXT ENGINE
+
+Create a structured context object containing relevant student data:
+
+```javascript
+{
+  student,
+  timetable,
+  attendance,
+  assignments,
+  exams,
+  studyPlans,
+  events,
+  academicPerformance
+}
+```
+
+Only send the minimum relevant context to Gemini.
+
+Do not expose sensitive authentication information.
+
+---
+
+# 22. CGPA CALCULATOR
+
+Create a complete academic calculator.
+
+For each subject:
+
 - Subject
-- Topics
-- Difficulty
-- Available study hours per day
+- Credits
+- Grade
+- Grade point
 
-CampusOS generates a structured preparation plan with daily topics, study durations, revision, and practice.
+Formula:
 
-### 🏫 Campus Events
-Discover and manage:
+```text
+SGPA =
+Σ(Credit × Grade Point) / Σ(Credits)
+```
+
+CGPA:
+
+```text
+CGPA =
+Σ(Semester Credits × SGPA) /
+Σ(Semester Credits)
+```
+
+Support:
+
+- Multiple semesters
+- Multiple subjects
+- Custom grade scales
+- Add/remove subjects
+- Automatic calculation
+- Semester comparison
+- Performance graph
+
+---
+
+# 23. ANALYTICS DASHBOARD
+
+Create visual analytics using Recharts.
+
+Charts:
+
+### SGPA Trend
+
+Semester vs SGPA
+
+### Attendance Trend
+
+Subject vs percentage
+
+### Assignment Completion
+
+Completed vs pending
+
+### Study Hours
+
+Daily/weekly study time
+
+### Subject Performance
+
+Compare subject performance.
+
+Include AI-generated interpretation.
+
+Example:
+
+> "Your academic performance improved by 0.4 SGPA points compared with the previous semester."
+
+Only generate claims from actual stored data.
+
+---
+
+# 24. CAMPUS EVENTS
+
+Create an event discovery system.
+
+Categories:
 
 - Hackathons
 - Workshops
 - Seminars
-- Cultural events
+- Cultural
 - Sports
-- Clubs
 - Competitions
+- Clubs
+- Technical events
 
-Features include:
-- Event cards
-- Dates and locations
-- Organizers
-- Registration
-- Save events
-- Calendar integration
-- Student-created events
+Each event:
 
-### 👥 Clubs & Communities
-Explore student communities across:
+- Title
+- Category
+- Date
+- Time
+- Venue
+- Organizer
+- Description
+- Registration link
+- Image
+- Save button
 
-- Coding
-- AI/ML
-- Robotics
-- Music
-- Dance
-- Photography
-- Sports
-- Entrepreneurship
+Actions:
 
-Each club can contain:
+- Save
+- Register
+- Add to calendar
+- Share
+
+---
+
+# 25. CLUBS & COMMUNITIES
+
+Create club discovery.
+
+Examples:
+
+- Coding Club
+- AI/ML Club
+- Robotics Club
+- Music Club
+- Photography Club
+- Entrepreneurship Club
+- Sports Club
+
+Club profile:
+
 - Logo
+- Name
 - Description
-- Member count
-- Upcoming events
-- Join functionality
+- Category
+- Members
+- Events
+- Contact
+- Join button
 
-### 🔎 Lost & Found
-A dedicated campus Lost & Found system.
+---
 
-Students can report:
+# 26. LOST & FOUND
 
-**Lost**
-- Item
+Create two workflows:
+
+### Report Lost Item
+
+Fields:
+
+- Item name
+- Category
 - Location
 - Date
 - Description
 - Image
-- Contact method
+- Contact preference
 
-**Found**
-- Item
+### Report Found Item
+
+Same structure.
+
+Allow:
+
+- Search
+- Filter
+- Category
 - Location
 - Date
-- Description
-- Image
 
-Includes search and category filtering.
+Display cards with image, description and status.
 
-### 📖 Campus Resource Hub
-Centralized academic resource repository for:
+Statuses:
+
+- Open
+- Matched
+- Resolved
+
+---
+
+# 27. CAMPUS RESOURCE HUB
+
+Create a centralized academic resource repository.
+
+Categories:
 
 - Notes
 - Previous year papers
 - Lab manuals
 - Books
-- Tutorials
 - Lecture slides
+- Tutorials
 - Study guides
 
+Resource fields:
+
+- Title
+- Subject
+- Type
+- Description
+- Author/uploader
+- Upload date
+- File
+- Tags
+
 Features:
-- Upload
+
 - Search
 - Filter
 - Bookmark
 - Download
+- Upload
 
-### 🔔 Notification Center
-Notifications for:
+---
 
-- Upcoming classes
-- Assignment deadlines
+# 28. NOTIFICATION CENTER
+
+Create notifications for:
+
+- Upcoming class
+- Assignment deadline
+- Exam
+- Attendance warning
+- Study reminder
+- Event
+
+Support:
+
+- Read/unread
+- Mark all as read
+- Notification grouping
+
+---
+
+# 29. GLOBAL SEARCH
+
+Create a global search system.
+
+Search across:
+
+- Assignments
 - Exams
-- Low attendance
-- Campus events
-- Study reminders
+- Subjects
+- Events
+- Clubs
+- Resources
+- Lost & Found
 
-### 📊 Analytics Dashboard
-Visualize academic performance through:
+Use keyboard shortcut:
 
-- Attendance trends
-- SGPA trends
-- Assignment completion
-- Study hours
-- Subject performance
+```text
+Ctrl + K
+```
 
-CampusOS can also generate AI-powered academic insights.
+Open a command/search palette.
 
-### 🧠 CampusOS Intelligence
+---
 
-An AI-powered productivity layer that analyzes student academic data and provides:
+# 30. COMMAND PALETTE
 
-- Weekly summaries
-- Weak subject identification
-- Upcoming workload
-- Attendance risks
-- Exam preparation status
-- Recommended priorities
+Create a premium command palette.
 
 Example:
 
-> "Your next 7 days contain 3 assignments and 2 exams. Consider prioritizing Calculus revision tonight."
+```text
+Search CampusOS...
+
+Go to Dashboard
+Go to Timetable
+Add Assignment
+Add Exam
+Calculate CGPA
+Open AI Assistant
+Create Study Plan
+Find Event
+```
+
+Use keyboard navigation.
 
 ---
 
-## 🖥️ Student Command Center
+# 31. SETTINGS
 
-The Student Command Center is the central intelligence layer of the dashboard.
+Create:
 
-It summarizes the student's day by displaying:
-
-- 🎯 Next class
-- 📝 Most urgent assignment
-- 🧪 Upcoming exam
-- ⚠️ Attendance warning
-- 📚 Recommended study session
-- 🏫 Campus event
-
-Instead of forcing students to search through multiple sections, CampusOS brings the most important information directly to them.
-
----
-
-## 🛠️ Tech Stack
-
-| Technology | Purpose |
-|---|---|
-| **React** | Frontend framework |
-| **Vite** | Development/build tooling |
-| **Tailwind CSS** | Responsive UI styling |
-| **JavaScript / TypeScript** | Application logic |
-| **Supabase** | Authentication & database |
-| **Recharts** | Analytics and charts |
-| **Lucide React** | Icons |
-| **Gemini API** | AI-powered features |
-| **LocalStorage** | Demo/persistent local data |
-
-The architecture is designed around reusable, modular components for maintainability.
-
----
-
-## 🎨 Design Philosophy
-
-CampusOS is designed as a **modern academic technology platform**, rather than a basic student CRUD application.
-
-The interface focuses on:
-
-- Premium SaaS aesthetics
-- Responsive layouts
-- Modern typography
-- Rounded cards
-- Soft shadows
-- Smooth animations
-- Interactive charts
-- Progress indicators
-- Toast notifications
-- Skeleton loading states
-- Empty states
-- Confirmation dialogs
-- Dark/light mode
-
-The design intentionally avoids a childish student-app appearance.
-
----
-
-## 🔐 Authentication
-
-CampusOS supports:
-
-- Sign Up
-- Login
-- Forgot Password
-- Logout
-- Student profiles
-- Protected dashboards
-
-Student profile information includes:
+### Profile
 
 - Name
 - Email
@@ -313,252 +1061,838 @@ Student profile information includes:
 - Section
 - Student ID
 
-When Supabase is configured, authentication can be handled through Supabase.
+### Appearance
 
-If Supabase credentials are unavailable, CampusOS can operate using a local/demo authentication mode.
+- Light mode
+- Dark mode
+- System
+
+### Notifications
+
+Toggle notification types.
+
+### Academic Settings
+
+- Attendance threshold
+- Grade scale
+- Default study hours
+
+### Data
+
+- Export data
+- Import data
+- Clear demo data
+
+### Account
+
+- Logout
+- Delete account
 
 ---
 
-## 📱 Responsive Design
+# 32. DATABASE ARCHITECTURE
 
-CampusOS is designed for:
-
-- 💻 Desktop
-- 📱 Mobile
-- 📲 Tablet
-
-Desktop uses a sidebar-based navigation system, while mobile can use a bottom navigation or collapsible navigation drawer.
-
----
-
-## 📂 Project Structure
-
-A recommended structure is:
+Create appropriate Supabase tables such as:
 
 ```text
-CampusOS/
-├── public/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── layouts/
-│   ├── hooks/
-│   ├── services/
-│   ├── lib/
-│   ├── data/
-│   ├── utils/
-│   ├── App.jsx
-│   └── main.jsx
-│
-├── .env.example
-├── package.json
-├── tailwind.config.js
-├── vite.config.js
-└── README.md
+profiles
+subjects
+timetable
+attendance
+assignments
+exams
+study_plans
+study_sessions
+events
+clubs
+club_members
+lost_found
+resources
+notifications
+academic_records
+```
+
+Use appropriate relationships.
+
+Each student's private academic data must be associated with their authenticated user ID.
+
+---
+
+# 33. SECURITY
+
+Implement:
+
+- Authentication
+- Protected routes
+- Row Level Security
+- Input validation
+- Secure database policies
+- Environment variables
+- No hardcoded API secrets
+
+Never expose private student records to another user.
+
+Never commit:
+
+```text
+.env
+.env.local
+API keys
+service-role keys
 ```
 
 ---
 
-## ⚙️ Getting Started
+# 34. DEMO DATA
 
-### 1. Clone the repository
+When first launched in demo mode, populate realistic sample data.
 
-```bash
-git clone https://github.com/YOUR-USERNAME/CampusOS.git
-cd CampusOS
+Student:
+
+```text
+Name: Sneha Ghosh
+Course: B.Tech CSE (AI & ML)
+Semester: 1
+Section: A
 ```
 
-### 2. Install dependencies
+Sample subjects:
 
-```bash
-npm install
-```
-
-### 3. Configure environment variables
-
-Create a `.env` file:
-
-```env
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-VITE_GEMINI_API_KEY=your_gemini_api_key
-```
-
-Only configure the services you have enabled.
-
-### 4. Start the development server
-
-```bash
-npm run dev
-```
-
-The application will be available through the local Vite development server.
-
----
-
-## 🗄️ Supabase Setup
-
-If using Supabase:
-
-1. Create a Supabase project.
-2. Configure authentication.
-3. Create the required database tables.
-4. Add your Supabase project URL.
-5. Add your anonymous/public API key to the environment variables.
-6. Configure the application to use Supabase for persistent user data.
-
-For development without Supabase, the demo/localStorage mode can be used.
-
----
-
-## 🤖 Gemini AI Setup
-
-CampusOS uses Gemini for AI-powered functionality such as:
-
-- Study planning
-- Academic workload analysis
-- Revision questions
-- Topic explanations
-- Assignment prioritization
-- Productivity insights
-
-Add your Gemini API key to the environment configuration:
-
-```env
-VITE_GEMINI_API_KEY=your_gemini_api_key
-```
-
-Keep API credentials out of the repository.
-
----
-
-## 🧪 Demo Mode
-
-CampusOS can launch with realistic sample data so the interface is populated immediately.
-
-Example student:
-
-**Name:** Sneha  
-**Course:** B.Tech CSE (AI & ML)  
-**Semester:** 1
-
-Example subjects include:
-
-- Mathematics
+- Engineering Mathematics
 - Programming
 - Basic Electrical Engineering
 - Engineering Physics
 - Communication
 - Engineering Elective
 
-Demo data can be replaced with real student information.
+Create realistic:
+
+- Timetable
+- Attendance
+- Assignments
+- Exams
+- Events
+- Study plans
+
+The dashboard should look populated immediately.
+
+Clearly indicate demo mode where appropriate.
 
 ---
 
-## 🔒 Data & Security
+# 35. EMPTY STATES
 
-CampusOS should follow secure development practices:
+Never show blank pages.
 
-- Never commit API keys
-- Store secrets in environment variables
-- Protect authenticated routes
-- Validate user input
-- Apply appropriate database security policies
-- Use secure authentication
-- Avoid exposing private student data
+If no data exists, display useful empty states.
 
-Add `.env` to `.gitignore`:
+Example:
 
-```gitignore
-.env
-.env.local
-```
+> No assignments yet.
+
+> Create your first assignment to start tracking your academic workload.
+
+Button:
+
+**+ Add Assignment**
 
 ---
 
-## 🌟 Core User Flow
+# 36. LOADING STATES
+
+Use skeleton loaders instead of blank screens.
+
+Create:
+
+- Dashboard skeleton
+- Table skeleton
+- Card skeleton
+- Chart skeleton
+
+---
+
+# 37. ERROR HANDLING
+
+Errors must be user-friendly.
+
+Do not display raw technical errors.
+
+Instead:
+
+> Something went wrong while loading your assignments.
+
+Buttons:
+
+- Retry
+- Go back
+
+---
+
+# 38. TOAST SYSTEM
+
+Use toast notifications.
+
+Examples:
+
+> Assignment created successfully.
+
+> Exam updated.
+
+> Timetable saved.
+
+> Study plan generated.
+
+> Attendance updated.
+
+---
+
+# 39. ANIMATIONS
+
+Use subtle animations.
+
+Examples:
+
+- Page transitions
+- Card hover
+- Button feedback
+- Progress animations
+- Modal transitions
+- Chart entrance animations
+- Sidebar transitions
+
+Do not over-animate the interface.
+
+Respect reduced-motion preferences.
+
+---
+
+# 40. ACCESSIBILITY
+
+Ensure:
+
+- Keyboard navigation
+- Proper labels
+- Good contrast
+- Focus states
+- Screen-reader-friendly buttons
+- Accessible form controls
+- Large enough touch targets
+
+---
+
+# 41. PERFORMANCE
+
+Optimize:
+
+- Component rendering
+- Images
+- API calls
+- Database queries
+- Chart rendering
+
+Use reusable components.
+
+Avoid unnecessary duplication.
+
+---
+
+# 42. COMPONENT ARCHITECTURE
+
+Use reusable components such as:
 
 ```text
-Landing Page
-      ↓
-Authentication
-      ↓
-Student Dashboard
-      ↓
-Student Command Center
-      ↓
-┌──────────────────────────────┐
-│ Timetable                    │
-│ Attendance                   │
-│ Assignments                  │
-│ Exams                        │
-│ CGPA                         │
-│ AI Study Planner             │
-│ AI Assistant                 │
-│ Events                       │
-│ Clubs                        │
-│ Lost & Found                 │
-│ Resources                    │
-│ Analytics                    │
-│ Settings                     │
-└──────────────────────────────┘
+Navbar
+Sidebar
+MobileNav
+StatCard
+ProgressCard
+SubjectCard
+AssignmentCard
+ExamCard
+EventCard
+ChartCard
+Modal
+Dialog
+Toast
+Badge
+Button
+Input
+Select
+DatePicker
+EmptyState
+LoadingSkeleton
+CommandPalette
+```
+
+Do not create huge monolithic React components.
+
+---
+
+# 43. ROUTING
+
+Use React Router.
+
+Suggested routes:
+
+```text
+/
+ /login
+ /signup
+ /forgot-password
+
+/app
+/app/dashboard
+/app/timetable
+/app/attendance
+/app/assignments
+/app/exams
+/app/cgpa
+/app/study-planner
+/app/ai
+/app/events
+/app/clubs
+/app/lost-found
+/app/resources
+/app/analytics
+/app/settings
+```
+
+Protect `/app/*`.
+
+Unauthenticated users should be redirected to authentication.
+
+---
+
+# 44. RESPONSIVE BREAKPOINTS
+
+Design for:
+
+- Small mobile
+- Mobile
+- Tablet
+- Laptop
+- Desktop
+- Large desktop
+
+Do not allow horizontal page overflow.
+
+Tables should transform into cards or horizontally scroll when necessary.
+
+---
+
+# 45. DATA PERSISTENCE
+
+Demo mode:
+
+Use localStorage.
+
+Production mode:
+
+Use Supabase.
+
+Create an abstraction layer so the UI does not depend directly on localStorage or Supabase.
+
+For example:
+
+```text
+services/
+  authService
+  assignmentService
+  timetableService
+  attendanceService
+  examService
+  eventService
+  resourceService
 ```
 
 ---
 
-## 🎯 Project Goals
+# 46. AI SERVICE ARCHITECTURE
 
-CampusOS aims to:
+Create an AI service layer.
 
-- Reduce academic organization overhead
-- Give students a single source of campus information
-- Improve assignment and exam planning
-- Make attendance easier to monitor
-- Provide personalized AI academic assistance
-- Help students discover campus opportunities
-- Encourage better academic productivity
+Example:
 
----
+```text
+services/
+  geminiService.js
+```
 
-## 🔮 Future Improvements
+Functions:
 
-Potential future additions include:
+```javascript
+generateStudyPlan()
+analyzeWorkload()
+generateRevisionQuestions()
+explainTopic()
+generateAcademicInsight()
+prioritizeAssignments()
+```
 
-- University-specific integrations
-- Automatic timetable synchronization
-- Faculty dashboards
-- Parent/guardian access
-- Push notifications
-- AI lecture-note generation
-- AI-powered question paper generation
-- QR-based attendance
-- Campus navigation
-- Student marketplace
-- Peer tutoring
-- Hostel management
-- Transport tracking
-- Advanced recommendation systems
+Handle:
+
+- Loading
+- API errors
+- Rate limits
+- Empty responses
+- Retry
 
 ---
 
-## 👩‍💻 Author
+# 47. IMPORTANT AI SAFETY
 
-**Sneha Ghosh**
+The AI should not pretend to know information that is not present.
 
-B.Tech CSE (AI & ML)
+If insufficient context exists, explicitly say that more information is required.
 
----
-
-## 📄 License
-
-This project is intended for educational, portfolio, and development purposes.
-
-Add a suitable open-source license such as **MIT License** if you want others to reuse and modify the project.
+Academic recommendations should be presented as recommendations, not guaranteed outcomes.
 
 ---
 
-## ⭐ Support
+# 48. NOTIFICATION LOGIC
 
-If you find CampusOS useful, consider giving the repository a ⭐ on GitHub.
+Automatically generate reminders for:
 
-**CampusOS — Your entire campus, in one place.**
+### Assignments
+
+- 7 days before
+- 3 days before
+- 1 day before
+- Overdue
+
+### Exams
+
+- 14 days before
+- 7 days before
+- 3 days before
+- 1 day before
+
+### Attendance
+
+Trigger warnings when attendance falls below configured thresholds.
+
+---
+
+# 49. STUDENT PRODUCTIVITY SCORE
+
+Create an optional productivity overview based on:
+
+- Assignment completion
+- Study sessions
+- Attendance
+- Exam preparation
+- Task completion
+
+Do NOT present it as a judgment of the student's ability.
+
+Instead call it:
+
+> Weekly Academic Focus
+
+---
+
+# 50. DASHBOARD INTELLIGENCE
+
+The dashboard should dynamically determine important information.
+
+Example logic:
+
+```text
+IF assignment due soon
+→ increase priority
+
+IF exam approaching
+→ show exam preparation card
+
+IF attendance below threshold
+→ show attendance warning
+
+IF no urgent tasks
+→ recommend study session
+
+IF upcoming event matches saved interests
+→ highlight event
+```
+
+This is the central intelligence layer of CampusOS.
+
+---
+
+# 51. SAMPLE COMMAND CENTER
+
+Example dashboard:
+
+```text
+Good morning, Sneha 👋
+
+Here's what matters today.
+
+┌──────────────┬──────────────┬──────────────┬──────────────┐
+│ Attendance   │ Assignments  │ Exams        │ SGPA         │
+│ 87%          │ 3 Pending    │ 2 Upcoming   │ 9.1          │
+└──────────────┴──────────────┴──────────────┴──────────────┘
+
+TODAY
+
+10:00
+Engineering Mathematics
+LH-401
+
+12:00
+Programming
+Lab 3
+
+──────────────────────────────────────
+
+AI INSIGHT
+
+You have 3 assignments due this week.
+Your Mathematics exam is in 5 days.
+
+Recommended:
+90 minutes of Mathematics revision tonight.
+
+──────────────────────────────────────
+
+URGENT
+
+🔴 Programming Assignment — Tomorrow
+
+🟠 Mathematics Exam — 5 Days
+
+🟡 BEE Attendance — 76%
+
+──────────────────────────────────────
+
+UPCOMING EVENTS
+
+AI Hackathon
+Saturday
+Campus Auditorium
+```
+
+---
+
+# 52. MICRO-INTERACTIONS
+
+Include:
+
+- Hover states
+- Active navigation states
+- Animated progress bars
+- Smooth modal opening
+- Button press feedback
+- Checkmark animation after completion
+- Countdown updates
+- Real-time attendance percentage updates
+
+---
+
+# 53. FORMS
+
+All forms must:
+
+- Validate input
+- Display errors clearly
+- Prevent invalid submissions
+- Provide loading states
+- Show success feedback
+- Reset after successful submission where appropriate
+
+---
+
+# 54. CODE QUALITY
+
+Write clean, maintainable code.
+
+Use:
+
+- Meaningful variable names
+- Reusable functions
+- Reusable components
+- Clear folder organization
+- Comments only where useful
+- No unnecessary duplication
+- No dead code
+
+Avoid giant components.
+
+---
+
+# 55. README
+
+Generate a professional README containing:
+
+- Project overview
+- Features
+- Screenshots section
+- Tech stack
+- Architecture
+- Installation
+- Environment variables
+- Supabase setup
+- Gemini setup
+- Demo mode
+- Database structure
+- Security
+- Future roadmap
+- Author
+- License
+
+---
+
+# 56. ENVIRONMENT FILE
+
+Create:
+
+```text
+.env.example
+```
+
+Containing:
+
+```env
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+VITE_GEMINI_API_KEY=
+```
+
+Never place actual secrets in source code.
+
+---
+
+# 57. GITHUB READINESS
+
+The project should be ready to push to GitHub.
+
+Include:
+
+```text
+.gitignore
+README.md
+.env.example
+package.json
+```
+
+Do not include:
+
+```text
+.env
+node_modules
+private API keys
+```
+
+---
+
+# 58. FINAL QUALITY REQUIREMENT
+
+Before considering the project complete, test every major flow.
+
+Verify:
+
+### Authentication
+
+- Sign up
+- Login
+- Logout
+
+### Dashboard
+
+- Data loads
+- Stats calculate correctly
+- Command Center updates
+
+### Timetable
+
+- Add
+- Edit
+- Delete
+- Current class detection
+
+### Attendance
+
+- Add attendance
+- Update attendance
+- Percentage calculation
+- Forecast
+
+### Assignments
+
+- Create
+- Edit
+- Complete
+- Delete
+- Filter
+- Overdue detection
+
+### Exams
+
+- Create
+- Countdown
+- Preparation tracking
+
+### CGPA
+
+- Correct SGPA
+- Correct CGPA
+- Multiple semesters
+
+### AI
+
+- Assistant
+- Study planner
+- Insights
+
+### Events
+
+- Browse
+- Search
+- Save
+
+### Resources
+
+- Search
+- Filter
+- Bookmark
+
+### Lost & Found
+
+- Create report
+- Search
+- Filter
+
+### Settings
+
+- Update profile
+- Theme
+- Notifications
+
+---
+
+# 59. CRITICAL UX RULE
+
+Do not make the user manually navigate through multiple pages to understand their academic situation.
+
+The dashboard should intelligently surface important information.
+
+For example:
+
+Instead of:
+
+> "Go to Assignments → find your assignment → check due date."
+
+Show directly:
+
+> 🔴 Programming assignment due tomorrow.
+
+Instead of:
+
+> "Go to Exams → check exam date."
+
+Show:
+
+> 🧪 Mathematics exam in 5 days.
+
+Instead of:
+
+> "Open Attendance → check every subject."
+
+Show:
+
+> ⚠️ BEE attendance has fallen below your target.
+
+CampusOS should behave like a **personal academic operating system**, not merely a database interface.
+
+---
+
+# 60. IMPLEMENTATION PRIORITY
+
+Build in this order:
+
+### Phase 1
+
+- Project setup
+- Routing
+- Design system
+- Authentication
+- Dashboard
+- Navigation
+
+### Phase 2
+
+- Timetable
+- Attendance
+- Assignments
+- Exams
+- CGPA
+
+### Phase 3
+
+- AI Assistant
+- AI Study Planner
+- CampusOS Intelligence
+- Analytics
+
+### Phase 4
+
+- Events
+- Clubs
+- Lost & Found
+- Resources
+
+### Phase 5
+
+- Notifications
+- Search
+- Command Palette
+- Settings
+- Responsive optimization
+- Accessibility
+- Performance
+
+---
+
+# 61. DO NOT USE PLACEHOLDER UI
+
+Do not leave major sections as:
+
+```text
+Coming Soon
+Lorem ipsum
+Placeholder
+TODO
+```
+
+Every major page should contain functional interface elements.
+
+If a backend feature cannot be fully configured, implement a working local/demo version.
+
+---
+
+# 62. FINAL EXPECTATION
+
+The final application should feel like a **real startup-quality campus platform**.
+
+It should be:
+
+- Intelligent
+- Fast
+- Beautiful
+- Responsive
+- Modular
+- Scalable
+- Secure
+- Accessible
+- Practical
+
+The final experience should make a student feel:
+
+> "I don't need five different apps to manage college anymore."
+
+### FINAL BRAND STATEMENT
+
+# 🎓 CampusOS
+
+> **Your entire campus, in one place.**
+
+Build the complete application now, including the frontend, routing, reusable components, demo data, local persistence, Supabase integration structure, Gemini integration structure, responsive design, analytics, AI features, and professional README.
