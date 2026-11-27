@@ -749,7 +749,7 @@ instead of giving a generic response.
 
 # 21. AI CONTEXT ENGINE
 
-Create a structured context object containing relevant student data:
+Create a structured context object containing relevant student data::
 
 ```javascript
 {
