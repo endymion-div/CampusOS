@@ -810,7 +810,7 @@ Support:
 
 # 23. ANALYTICS DASHBOARD
 
-Create visual analytics using Recharts.
+Create visual analytics using Recharts..
 
 Charts:
 
