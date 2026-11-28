@@ -208,7 +208,7 @@ Support:
 
 ### Light Mode
 
-Bright background, white cards, subtle borders.
+Bright background, white cards and subtle borders.
 
 ### Dark Mode
 
